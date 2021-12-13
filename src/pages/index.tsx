@@ -1,5 +1,5 @@
-import Main from "../components/Main";
+import SignIn from "../templates/SignIn";
 
 export default function Home() {
-    return <Main />;
+    return <SignIn />;
 }
