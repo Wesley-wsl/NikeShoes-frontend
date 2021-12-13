@@ -1,8 +1,10 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import NextNprogress from "nextjs-progressbar";
+import { ToastContainer, Slide } from "react-toastify";
 
 import GlobalStyles from "../styles/GlobalStyle";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -27,6 +29,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             <GlobalStyles />
             <NextNprogress color="#ff0000" startPosition={0.5} />
             <Component {...pageProps} />
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                draggable={true}
+                pauseOnHover
+                transition={Slide}
+                theme="dark"
+            />
         </>
     );
 }
