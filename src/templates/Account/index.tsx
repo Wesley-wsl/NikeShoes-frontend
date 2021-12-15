@@ -5,7 +5,9 @@ import * as S from "./styles";
 const AccountTemplate: React.FC = ({ children }) => {
     return (
         <S.BackgroundContainer>
-            <S.Aside>{children}</S.Aside>
+            <S.Aside>
+                <S.Account>{children}</S.Account>
+            </S.Aside>
         </S.BackgroundContainer>
     );
 };

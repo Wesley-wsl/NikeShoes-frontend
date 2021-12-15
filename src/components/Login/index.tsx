@@ -5,7 +5,6 @@ import Link from "next/link";
 import React, { FormEvent, useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
-import * as S from "../../styles/sharedStyle";
 
 const Login: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +17,7 @@ const Login: React.FC = () => {
         signIn({ email, password });
     }
     return (
-        <S.Account>
+        <>
             <div>
                 <Image
                     src="/assets/icons/Logo.svg"
@@ -71,7 +70,7 @@ const Login: React.FC = () => {
                     Don&apos; t have an account? register here
                 </Link>
             </p>
-        </S.Account>
+        </>
     );
 };
 

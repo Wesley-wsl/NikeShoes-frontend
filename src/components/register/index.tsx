@@ -6,7 +6,6 @@ import React, { FormEvent, useState } from "react";
 
 import { errorToast, successToast } from "../../helpers/toast";
 import { api } from "../../services/api";
-import * as S from "../../styles/sharedStyle";
 
 const Register: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +34,7 @@ const Register: React.FC = () => {
             .catch(error => errorToast(error.response.data.error));
     }
     return (
-        <S.Account>
+        <>
             <div>
                 <Image
                     src="/assets/icons/Logo.svg"
@@ -115,7 +114,7 @@ const Register: React.FC = () => {
             <p>
                 <Link href="/">Already have an account ? login here</Link>
             </p>
-        </S.Account>
+        </>
     );
 };
 
