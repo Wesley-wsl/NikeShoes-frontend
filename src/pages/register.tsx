@@ -1,9 +1,14 @@
 import React from "react";
 
-import Account from "../templates/Account";
+import Register from "../components/Register";
+import AccountTemplate from "../templates/Account";
 
 const SignUp: React.FC = () => {
-    return <Account />;
+    return (
+        <AccountTemplate>
+            <Register />
+        </AccountTemplate>
+    );
 };
 
 export default SignUp;

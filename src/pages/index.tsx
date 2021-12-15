@@ -1,11 +1,16 @@
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 
+import Login from "../components/Login";
 import { getApiClient } from "../services/apiSSR";
-import Account from "../templates/Account";
+import AccountTemplate from "../templates/Account";
 
 export default function Home() {
-    return <Account />;
+    return (
+        <AccountTemplate>
+            <Login />
+        </AccountTemplate>
+    );
 }
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
