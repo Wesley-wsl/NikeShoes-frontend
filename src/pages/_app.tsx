@@ -3,6 +3,7 @@ import Head from "next/head";
 import NextNprogress from "nextjs-progressbar";
 import { ToastContainer, Slide } from "react-toastify";
 
+import { AuthProvider } from "../contexts/AuthContext";
 import GlobalStyles from "../styles/GlobalStyle";
 import "react-toastify/dist/ReactToastify.min.css";
 
@@ -28,7 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Head>
             <GlobalStyles />
             <NextNprogress color="#ff0000" startPosition={0.5} />
-            <Component {...pageProps} />
+
+            <AuthProvider>
+                <Component {...pageProps} />
+            </AuthProvider>
+
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
