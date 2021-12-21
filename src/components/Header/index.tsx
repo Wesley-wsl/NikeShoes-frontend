@@ -1,11 +1,13 @@
 import React from "react";
 
 import { IHeader } from "../../@types";
+import Cart from "../Cart";
+import Profile from "../Profile";
 import * as S from "./styles";
 
-const Header: React.FC<IHeader> = ({ setIsMan }) => {
+const Header: React.FC<IHeader> = ({ setIsMan, isAdmin, cartQuantity }) => {
     return (
-        <S.Container>
+        <S.Container data-aos="fade-down">
             <S.NikeLogo />
 
             <nav>
@@ -16,8 +18,8 @@ const Header: React.FC<IHeader> = ({ setIsMan }) => {
             </nav>
 
             <div>
-                <S.PersonCircleIcon />
-                <S.CartIcon />
+                <Profile isAdmin={isAdmin} />
+                <Cart cartQuantity={cartQuantity} />
             </div>
         </S.Container>
     );
