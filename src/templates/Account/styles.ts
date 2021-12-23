@@ -38,7 +38,7 @@ export const Account = styled.section`
     }
 
     h1 {
-        font-size: var(--medium);
+        font-size: var(--large);
     }
 
     form {

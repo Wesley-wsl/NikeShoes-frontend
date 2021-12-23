@@ -5,10 +5,11 @@ const GlobalStyles = createGlobalStyle`
 :root {
     --black-transparent:  #000000bf;
 
-    --x-small: 1.3rem;
-    --small: 2.0rem;
-    --medium: 4.8rem;
-    --large: 6rem;
+    --x-small: 1.4rem;
+    --small: 2rem;
+    --x-medium: 3rem;
+    --medium: 4rem;
+    --large: 4.8rem;
 }
 
 
@@ -29,6 +30,10 @@ body {
 
 a {
     color:#fff;
+}
+
+ul {
+    list-style: none;
 }
 
 `;
