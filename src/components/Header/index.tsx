@@ -5,7 +5,7 @@ import Cart from "../Cart";
 import Profile from "../Profile";
 import * as S from "./styles";
 
-const Header: React.FC<IHeader> = ({ setIsMan, isAdmin, cartQuantity }) => {
+const Header: React.FC<IHeader> = ({ setIsMan, cartQuantity }) => {
     return (
         <S.Container data-aos="fade-down">
             <S.NikeLogo />
@@ -18,7 +18,7 @@ const Header: React.FC<IHeader> = ({ setIsMan, isAdmin, cartQuantity }) => {
             </nav>
 
             <div>
-                <Profile isAdmin={isAdmin} />
+                <Profile />
                 <Cart cartQuantity={cartQuantity} />
             </div>
         </S.Container>
