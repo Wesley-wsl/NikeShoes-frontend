@@ -1,4 +1,4 @@
-import { PersonCircle, Cart } from "@styled-icons/bootstrap";
+import { PersonCircle } from "@styled-icons/bootstrap";
 import styled, { css } from "styled-components";
 
 import Logo from "../../../public/assets/icons/Logo.svg";
@@ -6,10 +6,11 @@ import Logo from "../../../public/assets/icons/Logo.svg";
 export const Container = styled.header`
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 2rem 2rem;
     max-width: 110rem;
     margin: 0 auto;
     align-items: center;
+    z-index: 999;
 
     nav > ul {
         display: flex;
@@ -31,12 +32,19 @@ export const Container = styled.header`
         display: flex;
         gap: 2rem;
     }
+
+    @media (max-width: 27rem) {
+        > svg {
+            display: none;
+        }
+    }
 `;
 
 export const NikeLogo = styled(Logo)`
     path {
         fill: #000;
     }
+    cursor: pointer;
 `;
 
 export const iconCSS = css`
@@ -55,9 +63,5 @@ export const iconCSS = css`
 `;
 
 export const PersonCircleIcon = styled(PersonCircle)`
-    ${iconCSS}
-`;
-
-export const CartIcon = styled(Cart)`
     ${iconCSS}
 `;

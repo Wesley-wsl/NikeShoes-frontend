@@ -19,9 +19,27 @@ export const Container = styled.div`
             background-color: #000;
         }
     }
+
+    @media (max-width: 65rem) {
+        div > button {
+            padding: 1.2rem;
+        }
+    }
+
+    @media (max-width: 44rem) {
+        padding: 3rem 0;
+        div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 `;
 
 export const Title = styled.h1`
     font-size: var(--small);
     margin-bottom: 1rem;
+
+    @media (max-width: 65rem) {
+        font-size: var(--x-small);
+    }
 `;
