@@ -56,9 +56,19 @@ const Products: React.FC<IProductsInCart> = ({
             <Image src={product_image} width="150" height="150" />
             <h2 title={name}>{name}</h2>
             <S.Counter>
-                <button onClick={handleDecrementProduct}>-</button>
+                <button
+                    data-testid="decrement"
+                    onClick={handleDecrementProduct}
+                >
+                    -
+                </button>
                 <p>{quantityProduct}</p>
-                <button onClick={handleIncrementProduct}>+</button>
+                <button
+                    data-testid="increment"
+                    onClick={handleIncrementProduct}
+                >
+                    +
+                </button>
             </S.Counter>
             <p className="price">${quantityProduct * price}</p>
             <S.TrashIcon onClick={handleRemoveProduct} />

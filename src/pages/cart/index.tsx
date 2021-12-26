@@ -44,7 +44,10 @@ const Cart: React.FC<IProductsArray> = ({ products }) => {
             <S.Header data-aos="fade-down">
                 <NikeLogo />
 
-                <div onClick={() => Router.push("/store")}>
+                <div
+                    data-testid="backToStore"
+                    onClick={() => Router.push("/store")}
+                >
                     <p>Back to store</p>
                 </div>
             </S.Header>
@@ -72,7 +75,7 @@ const Cart: React.FC<IProductsArray> = ({ products }) => {
                 )}
                 <S.GoCheckout>
                     <h2>Total: ${total}</h2>
-                    <Button onClick={handleCheckout}>
+                    <Button data-testid="checkout" onClick={handleCheckout}>
                         Proceed to checkout
                     </Button>
                 </S.GoCheckout>

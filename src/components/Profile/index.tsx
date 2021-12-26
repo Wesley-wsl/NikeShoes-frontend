@@ -2,10 +2,9 @@ import Router from "next/router";
 import { destroyCookie } from "nookies";
 import React, { useState } from "react";
 
-import { IProfile } from "../../@types";
 import * as S from "./styles";
 
-const Profile: React.FC<IProfile> = ({ isAdmin }) => {
+const Profile: React.FC = () => {
     const [showOptions, setShowOptions] = useState(false);
 
     function handleLogout() {
@@ -15,14 +14,15 @@ const Profile: React.FC<IProfile> = ({ isAdmin }) => {
 
     return (
         <S.Container>
-            <S.PersonCircleIcon onClick={() => setShowOptions(!showOptions)} />
+            <S.PersonCircleIcon
+                data-testid="openLogout"
+                onClick={() => setShowOptions(!showOptions)}
+            />
             {showOptions && (
                 <S.Logout>
-                    {isAdmin && (
-                        <p onClick={() => Router.push("/admin")}>Dashboard</p>
-                    )}
-
-                    <p onClick={handleLogout}>Logout</p>
+                    <p data-testid="logout" onClick={handleLogout}>
+                        Logout
+                    </p>
                 </S.Logout>
             )}
         </S.Container>

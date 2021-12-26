@@ -48,6 +48,7 @@ const Register: React.FC = () => {
             <form onSubmit={handleCreateUser}>
                 <div>
                     <input
+                        data-testid="form-first_name"
                         type="text"
                         name="first_name"
                         placeholder="First Name"
@@ -61,6 +62,7 @@ const Register: React.FC = () => {
                 </div>
                 <div>
                     <input
+                        data-testid="form-last_name"
                         type="text"
                         name="last_name"
                         placeholder="Last Name"
@@ -74,6 +76,7 @@ const Register: React.FC = () => {
                 </div>
                 <div>
                     <input
+                        data-testid="form-email"
                         type="email"
                         name="email"
                         placeholder="Email"
@@ -87,6 +90,7 @@ const Register: React.FC = () => {
                 </div>
                 <div>
                     <input
+                        data-testid="form-password"
                         type={showPassword ? "text" : "password"}
                         name="password"
                         autoComplete="on"
@@ -108,7 +112,9 @@ const Register: React.FC = () => {
                     </span>
                 </div>
 
-                <button type="submit">Register</button>
+                <button data-testid="form-btn" type="submit">
+                    Register
+                </button>
             </form>
 
             <p>
