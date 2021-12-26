@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 import ArrowLeft from "../../../public/assets/icons/ArrowLeft.svg";
 import ArrowRight from "../../../public/assets/icons/ArrowRight.svg";
-import { IProductsArray, IProductsSeparated } from "../../@types";
+import { IProducts, IProductsSeparated } from "../../@types";
 import Header from "../../components/Header";
 import SizeSelector from "../../components/SizeSelector";
 import { errorToast, successToast } from "../../helpers/toast";
@@ -15,17 +15,11 @@ import { api } from "../../services/api";
 import { getApiClient } from "../../services/apiSSR";
 import * as S from "../../styles/pages/Store";
 
-const Store: React.FC<IProductsSeparated> = ({
-    man,
-    woman,
-    isAdmin,
-    countCart,
-}) => {
+const Store: React.FC<IProductsSeparated> = ({ man, woman, countCart }) => {
     const [isMan, setIsMan] = useState(true);
-    const [products, setProducts] = useState<any>();
+    const [products, setProducts] = useState<IProducts[]>([]);
     const [indexProducts, setIndexProducts] = useState(0);
     const [cartQuantity, setCartQuantiity] = useState(countCart);
-
     function nextProduct() {
         if (indexProducts + 1 > products.length - 1) return;
         setIndexProducts(indexProducts + 1);
@@ -57,27 +51,23 @@ const Store: React.FC<IProductsSeparated> = ({
 
     return (
         <>
-            <Header
-                setIsMan={setIsMan}
-                isAdmin={isAdmin}
-                cartQuantity={cartQuantity}
-            />
+            <Header setIsMan={setIsMan} cartQuantity={cartQuantity} />
             <S.Container>
                 {products ? (
                     <>
                         <S.ProductInformation data-aos="flip-right">
                             <div>
                                 <p>{isMan ? "Men's Shoe" : "Women's Shoe"}</p>
-                                <h1>{products[indexProducts].name}</h1>
+                                <h1>{products[indexProducts]?.name}</h1>
 
-                                <p>{products[indexProducts].description}</p>
-                                {products[indexProducts].video_url && (
+                                <p>{products[indexProducts]?.description}</p>
+                                {products[indexProducts]?.video_url && (
                                     <>
                                         <S.Button>
                                             <a
                                                 href={
                                                     products[indexProducts]
-                                                        .video_url
+                                                        ?.video_url
                                                 }
                                                 target="_blank"
                                                 rel="noreferrer"
@@ -93,11 +83,18 @@ const Store: React.FC<IProductsSeparated> = ({
 
                         <S.Product className="product" data-aos="flip-right">
                             <span className="img">
-                                <Image
-                                    src={products[indexProducts].product_image}
-                                    width="600"
-                                    height="600"
-                                />
+                                {products[indexProducts] ? (
+                                    <Image
+                                        src={
+                                            products[indexProducts]
+                                                ?.product_image
+                                        }
+                                        width="600"
+                                        height="600"
+                                    />
+                                ) : (
+                                    ""
+                                )}
                             </span>
                         </S.Product>
 
@@ -114,7 +111,7 @@ const Store: React.FC<IProductsSeparated> = ({
                             </div>
 
                             <S.Button onClick={handleAddProductInCart}>
-                                Add to cart - ${products[indexProducts].price}
+                                Add to cart - ${products[indexProducts]?.price}
                             </S.Button>
                         </S.Manager>
                     </>
@@ -128,14 +125,10 @@ const Store: React.FC<IProductsSeparated> = ({
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const { "nikeshoes-token": token } = parseCookies(ctx);
-    let userID;
 
     const validJwt = await getApiClient(ctx)
         .get(`users/validjwt/${token}`)
-        .then((response: { data: { id: string } }) => {
-            userID = response.data.id;
-            return true;
-        })
+        .then(() => true)
         .catch(() => false);
 
     if (!token || !validJwt) {
@@ -149,15 +142,21 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
     const woman = await getApiClient(ctx).get("products?category=Woman");
     const man = await getApiClient(ctx).get("products?category=Man");
-    const user = await getApiClient(ctx).get(`users/${userID}`);
-    const isAdmin = user.data.user[0]["admin"];
-    const countCart = user.data.user[0]["cart"].length;
+
+    const cartUser = await getApiClient(ctx).get("cart");
+    const productNumbers: number[] = [0];
+    await cartUser.data.cartUser.forEach((element: { quantity: number }) =>
+        productNumbers.push(element.quantity),
+    );
+
+    const countCart = productNumbers.reduce(
+        (acc = 0, element) => acc + element,
+    );
 
     return {
         props: {
             woman: woman.data.listProducts,
             man: man.data.listProducts,
-            isAdmin,
             countCart,
         },
     };
