@@ -1,34 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 - NikeShoes-Frontend - 🛒
 
-## Getting Started
+## Demo 📸
 
-First, run the development server:
+<p align='center'> <img src='.github/nikeshoes-frontend.gif'/></p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<hr/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Application deploy with Vercel: :dash:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> https://nike-shoes-frontend.vercel.app
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 📖 About the Project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+NikeShoes-frontend - This is the frontend of an e-commerce that aims to sell/buy Nike sneakers, done with typescript and tests with jest to make sure that everything works well besides using its own backend to consume it in the application.
 
-## Learn More
+## 📗 User Stories:
 
-To learn more about Next.js, take a look at the following resources:
+ - [x] - Register an account
+ - [x] - Login with one account already exist
+ - [x] - Filter products by women's and men's shoes
+ - [x] - Put products in your cart
+ - [x] - Increment and decrement quantity products from cart
+ - [x] - Remove products from cart
+ - [x] - View the optimal layout for the app depending on their device's screen size.
+ - [x] - Keep track of any changes, even after refreshing the browser. (Full-Stack Application)
+ - [x] - Make checkout to buy shoes
+ - [x] - Logout your account
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Technologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<li><a href="https://nextjs.org">Next.js</a></li>
+<li><a href="https://styled-components.com">Styled-components</a></li>
+<li><a href="https://styled-icons.dev/?s=">Styled-icons</a></li>
+<li><a href="https://axios-http.com">Axios</a></li>
+<li><a href="https://michalsnik.github.io/aos/">Aos</a></li>
+<li><a href="https://www.npmjs.com/package/nookies">Nookies</a></li>
+<li><a href="https://www.npmjs.com/package/nextjs-progressbar">Nextjs-progressbar</a></li>
+<li><a href="https://fkhadra.github.io/react-toastify/introduction">React-toastify"</a></li>
+<li><a href="https://eslint.org">Eslint</a></li>
+<li><a href="https://prettier.io">Prettier</a></li>
+<li><a href="Typescriptlang.org">Typescript</a></li>
+<li><a href="https://editorconfig.org">EditorConfig</a></li>
+<li><a href="https://jestjs.io">Jest</a></li>
 
-## Deploy on Vercel
+## 💻 How to run the application
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Pre-requisites:
+You must have the tools installed:  <a href="">Git</a>, <a href="">Node.js</a>. And create a new file called: .env.local, that follow .env.example credentials example for connect with a api or execute backend this application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<pre>
+# In the terminal, clone the project:
+$ git clone https://github.com/Wesley-wsl/NikeShoes-frontend.git
+
+# Enter the project folder:
+$ cd NikeShoes-frontend
+
+# Install dependencies:
+$ yarn install
+or
+$ npm install
+
+# Run the application:
+$ yarn start
+or
+$ npm run start
+</pre>
+
+Okay, now you can access the application from the route:  <a href="https://localhost:3000/">https://localhost:3000/</a>
