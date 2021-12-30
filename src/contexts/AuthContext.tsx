@@ -37,7 +37,7 @@ export function AuthProvider({ children }: IChildren) {
                 setCookie(undefined, "nikeshoes-token", response.data, {
                     maxAge: 60 * 60 * 1, // 1 hour
                 });
-                Router.push("/store");
+                Router.reload();
             })
             .catch(error => {
                 console.log(error);
