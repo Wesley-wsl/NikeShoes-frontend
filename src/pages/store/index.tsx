@@ -91,6 +91,7 @@ const Store: React.FC<IProductsSeparated> = ({ man, woman, countCart }) => {
                                         }
                                         width="600"
                                         height="600"
+                                        priority
                                     />
                                 ) : (
                                     ""
