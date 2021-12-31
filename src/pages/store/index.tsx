@@ -91,11 +91,12 @@ const Store: React.FC<IProductsSeparated> = ({ man, woman, countCart }) => {
                                         }
                                         width="600"
                                         height="600"
-                                        priority
+                                        loading="eager"
+                                        priority={true}
                                         alt={`Nike shoes ${products[indexProducts]?.name}`}
                                     />
                                 ) : (
-                                    ""
+                                    "Loading..."
                                 )}
                             </span>
                         </S.Product>
