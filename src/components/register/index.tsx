@@ -17,6 +17,13 @@ const Register: React.FC = () => {
     async function handleCreateUser(e: FormEvent) {
         e.preventDefault();
 
+        if (!firstName) return errorToast("FirstName is required");
+        if (!lastName) return errorToast("LastName is required");
+        if (!email) return errorToast("Email is required");
+        if (!password) return errorToast("Password is required");
+        if (password.length < 4)
+            return errorToast("Password must be at least 4 characters");
+
         await api
             .post("users", {
                 first_name: firstName,

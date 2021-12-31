@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { FormEvent, useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
+import { errorToast } from "../../helpers/toast";
 
 const Login: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,9 @@ const Login: React.FC = () => {
 
     async function handleLoginUser(e: FormEvent) {
         e.preventDefault();
+
+        if (!email || !password) return errorToast("Email/password incorrect");
+
         signIn({ email, password });
     }
     return (
