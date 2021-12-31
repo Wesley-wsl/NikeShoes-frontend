@@ -53,7 +53,12 @@ const Products: React.FC<IProductsInCart> = ({
 
     return (
         <S.Container display={display}>
-            <Image src={product_image} width="150" height="150" />
+            <Image
+                src={product_image}
+                width="150"
+                height="150"
+                alt={`Nike shoes ${name}`}
+            />
             <h2 title={name}>{name}</h2>
             <S.Counter>
                 <button
@@ -71,7 +76,10 @@ const Products: React.FC<IProductsInCart> = ({
                 </button>
             </S.Counter>
             <p className="price">${quantityProduct * price}</p>
-            <S.TrashIcon onClick={handleRemoveProduct} />
+            <S.TrashIcon
+                onClick={handleRemoveProduct}
+                aria-label="Trash icon, click to remove product from cart"
+            />
         </S.Container>
     );
 };

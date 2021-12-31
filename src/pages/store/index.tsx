@@ -92,6 +92,7 @@ const Store: React.FC<IProductsSeparated> = ({ man, woman, countCart }) => {
                                         width="600"
                                         height="600"
                                         priority
+                                        alt={`Nike shoes ${products[indexProducts]?.name}`}
                                     />
                                 ) : (
                                     ""
@@ -103,11 +104,11 @@ const Store: React.FC<IProductsSeparated> = ({ man, woman, countCart }) => {
                             <div>
                                 <div onClick={previousProduct}>
                                     <p>Prev</p>
-                                    <ArrowLeft />
+                                    <ArrowLeft aria-label="Arrow left icon, click to go previous product" />
                                 </div>
                                 <div onClick={nextProduct}>
                                     <p>Next</p>
-                                    <ArrowRight />
+                                    <ArrowRight aria-label="Arrow right icon, click to go next product" />
                                 </div>
                             </div>
 

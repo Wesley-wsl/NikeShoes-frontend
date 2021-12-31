@@ -17,6 +17,7 @@ const Profile: React.FC = () => {
             <S.PersonCircleIcon
                 data-testid="openLogout"
                 onClick={() => setShowOptions(!showOptions)}
+                aria-label="Peron circle icon, click to show option logout"
             />
             {showOptions && (
                 <S.Logout>

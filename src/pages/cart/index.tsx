@@ -42,7 +42,7 @@ const Cart: React.FC<IProductsArray> = ({ products }) => {
     return (
         <>
             <S.Header data-aos="fade-down">
-                <NikeLogo />
+                <NikeLogo alt="Nike logo" />
 
                 <div
                     data-testid="backToStore"
@@ -70,7 +70,7 @@ const Cart: React.FC<IProductsArray> = ({ products }) => {
                     ))
                 ) : (
                     <S.Empty>
-                        <S.CartXFillIcon />
+                        <S.CartXFillIcon aria-label="Cart empty" />
                     </S.Empty>
                 )}
                 <S.GoCheckout>

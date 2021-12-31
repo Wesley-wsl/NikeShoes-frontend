@@ -8,7 +8,7 @@ import * as S from "./styles";
 const Header: React.FC<IHeader> = ({ setIsMan, cartQuantity }) => {
     return (
         <S.Container data-aos="fade-down">
-            <S.NikeLogo />
+            <S.NikeLogo alt="Logo nike" />
 
             <nav>
                 <ul>
