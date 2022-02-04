@@ -26,6 +26,12 @@ describe("Home page", async () => {
         cy.get("[data-testid=form-btn]").click();
         cy.get(".Toastify__toast-body").should("exist");
     });
+
+    it("Must be able to redirect to page register", () => {
+        cy.get("a").click();
+        cy.url().should("be.equal", "http://localhost:3000/register");
+        cy.contains("Register").should("exist");
+    });
 });
 
 // Deve ser possível logar - Verificar se requisição post foi um sucesso.
