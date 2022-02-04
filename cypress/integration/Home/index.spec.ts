@@ -32,6 +32,25 @@ describe("Home page", async () => {
         cy.url().should("be.equal", "http://localhost:3000/register");
         cy.contains("Register").should("exist");
     });
+
+    it("Must be able to login with email and password", () => {
+        cy.visit("http://localhost:3000");
+        cy.get("[data-testid=form-email]")
+            .clear()
+            .type("wesleywestelley@gmail.com");
+        cy.get("[data-testid=form-password]").clear().type("1234");
+        cy.get("[data-testid=form-btn]").click();
+        cy.intercept({
+            method: "POST",
+            url: "https://nikeshoes-api.herokuapp.com/users/login",
+        }).as("login");
+        cy.wait("@login").then(xhr => {
+            expect(xhr.response?.statusCode).to.equal(200);
+        });
+        cy.url().should("be.equal", "http://localhost:3000/store");
+        cy.contains("Men").should("exist");
+        cy.contains("Women").should("exist");
+    });
 });
 
 // Deve ser possível logar - Verificar se requisição post foi um sucesso.
