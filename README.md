@@ -41,6 +41,7 @@ NikeShoes-frontend - This is the frontend of an e-commerce that aims to sell/buy
 <li><a href="https://prettier.io">Prettier</a></li>
 <li><a href="Typescriptlang.org">Typescript</a></li>
 <li><a href="https://editorconfig.org">EditorConfig</a></li>
+<li><a href="https://www.cypress.io">Cypress</a></li>
 <li><a href="https://jestjs.io">Jest</a></li>
 
 ## 💻 How to run the application
